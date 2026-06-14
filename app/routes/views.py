@@ -108,18 +108,9 @@ def tournaments():
         matches=matches,
         players=top_players,
     )
-
-
 @main.route("/teams")
 def teams():
     return render_template("teams.html")
-
-
-@main.route("/players")
-def players():
-    return render_template("players.html")
-
-
 @main.route("/schedule")
 def schedule():
     return render_template("schedule.html")

@@ -26,8 +26,8 @@ def login():
     return render_template("login.html")
 
 
-@main.route("/logout")
+@main.route("/logout", methods=["POST"])
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("main.login"))
+    return redirect(url_for("main.home"))

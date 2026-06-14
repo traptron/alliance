@@ -1,7 +1,7 @@
 import os
 import uuid
 
-from flask import url_for
+from flask import url_for, redirect
 from flask_admin.contrib.sqla import ModelView
 from flask_admin.form import ImageUploadField
 
@@ -15,7 +15,11 @@ class AdminModelView(ModelView):
 
     def is_accessible(self):
 
-        return current_user.is_authenticated
+        return current_user.is_authenticated and getattr(current_user, 'is_admin', False)
+
+    def inaccessible_callback(self, name, **kwargs):
+
+        return redirect(url_for("main.login"))
 
 
 class TeamAdminView(AdminModelView):

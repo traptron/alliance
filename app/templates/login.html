@@ -18,6 +18,7 @@
         <div class="login-sub">Введите данные для входа</div>
 
         <form method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="input-group-dark">
                 <label for="username">ЛОГИН</label>
                 <input type="text" id="username" name="username" class="input-dark" placeholder="admin" autocomplete="username">

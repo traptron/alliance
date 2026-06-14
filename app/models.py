@@ -425,5 +425,10 @@ class User(UserMixin, db.Model):
         nullable=False
     )
 
+    is_admin = db.Column(
+        db.Boolean,
+        default=False
+    )
+
     def __str__(self):
         return self.username
